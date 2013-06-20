@@ -26,8 +26,11 @@ This can be run from your IDE or Maven
 
 ## HSQL setup
 * Start HSQL in server mode
+
 > java -cp ..\..\devtools\apache-maven-3.0.4\repo\org\hsqldb\hsqldb\2.2.9\hsqldb-2.2.9.jar org.hsqldb.Server -database.0 file:licenses -dbname.0 licenses
 * Start HSQL Swing browser
+
 > java -cp ..\..\devtools\apache-maven-3.0.4\repo\org\hsqldb\hsqldb\2.2.9\hsqlb-2.2.9.jar org.hsqldb.util.DatabaseManager
 From the Manager
+
 > File \> Connect \> Change Type to Server \> Modify URL to jdbc:hsqldb:hsql://localhost/licenses
