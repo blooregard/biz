@@ -28,7 +28,9 @@
 					value="#{licenseRequest.line2}" />
 
 				<sos:field name="fein" label="FEIN:" required="false"
-					value="#{licenseRequest.fein}" />
+					value="#{licenseRequest.fein}">
+					<f:validateRegex pattern="^\d{2}-\d{7}$" for="inputText" />
+				</sos:field>
 
 				<sos:field id="issued_date" name="issued_date" label="Issued Date:"
 					required="false" value="#{licenseRequest.issuedDate}" >
