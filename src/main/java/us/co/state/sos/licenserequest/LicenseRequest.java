@@ -3,17 +3,19 @@ package us.co.state.sos.licenserequest;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import com.google.common.base.Objects;
 
-@ManagedBean
-@SessionScoped
+@Entity
 public class LicenseRequest implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String line1;
@@ -23,6 +25,16 @@ public class LicenseRequest implements Serializable {
 	private Date expirationDate;
 	//private Employee approvedBy;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id){
+		this.id = id;
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}

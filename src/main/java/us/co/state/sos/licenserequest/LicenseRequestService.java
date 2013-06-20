@@ -1,13 +1,21 @@
 package us.co.state.sos.licenserequest;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-@ManagedBean
-@SessionScoped
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+@Repository
 public class LicenseRequestService {
+	
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	@Transactional
 	public String create(LicenseRequest licenseRequest) {
 		System.out.format("License for %s accepted\n", licenseRequest.getLastName());
+		entityManager.persist(licenseRequest);
 		return "Success";
 	}
 }

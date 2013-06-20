@@ -8,6 +8,8 @@ This is the application that we made in the JSF Training course
 * Guava
 * JUnit
 * Joda-Time
+* Spring 3.2.1
+* HSQL
 
 ## Purpose
 Collect business user data for creation and display
@@ -19,5 +21,5 @@ This can be run from your IDE or Maven
 
 * IntelliJ
 
-* Maven
-	mvn tomcat7:run-war
+* Maven 
+> mvn tomcat7:run-war
