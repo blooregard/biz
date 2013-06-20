@@ -16,8 +16,8 @@ Collect business user data for creation and display
 ## Running
 This can be run from your IDE or Maven
 * Eclipse
-**
+
 * IntelliJ
-**
+
 * Maven
-** mvn tomcat7:run-war
+	mvn tomcat7:run-war
