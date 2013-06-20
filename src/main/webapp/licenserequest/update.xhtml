@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sos="http://java.sun.com/jsf/composite/soscomp"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<ui:define name="head">
+		Update License Request
+	</ui:define>
+
+	<ui:define name="body">
+		<h:form id="create_license_request_form"
+			name="create_license_request_form">
+			
+				<sos:field name="first_name" label="First Name:"
+					required="true" value="#{licenseRequest.firstName}">
+					<f:validateLength minimum="3" for="inputText" />
+				</sos:field>
+
+				<sos:field name="last_name" label="Last Name:"
+					required="true" value="#{licenseRequest.lastName}" />
+
+				<sos:field name="line1" label="Line 1:" required="true"
+					value="#{licenseRequest.line1}" />
+
+				<sos:field name="line2" label="Line 2:" required="false"
+					value="#{licenseRequest.line2}" />
+
+				<sos:field name="fein" label="FEIN:" required="false"
+					value="#{licenseRequest.fein}">
+					<f:validateRegex pattern="^\d{2}-\d{7}$" for="inputText" />
+				</sos:field>
+
+				<sos:field id="issued_date" name="issued_date" label="Issued Date:"
+					required="false" value="#{licenseRequest.issuedDate}" >
+					<f:converter converterId="sosDateConverter"  for="inputText"/>
+				</sos:field>
+
+				<sos:field name="expiration_date"
+					label="Expiration Date:" required="false"
+					value="#{licenseRequest.expirationDate}" >
+					<f:converter converterId="sosDateConverter"  for="inputText"/>
+					<f:validator validatorId="dateAfterValidator"  for="inputText"/>
+				</sos:field>
+
+			<h:commandButton id="update_license_request"
+				name="update_license_request" value="Update"
+				action="updateLicenseRequest" />
+		</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -3,20 +3,19 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
-      start-state="create">
+      start-state="update">
 
     <persistence-context/>
 
-    <var name="licenseRequest" class="us.co.state.sos.licenserequest.LicenseRequest"/>
+   <input name="licenseRequestId" required="true"/>
 
-    <view-state id="create" view="/licenserequest/create.xhtml">
-        <transition on="createLicenseRequest" to="saveLicenseRequest"/>
+	<on-start>
+		<evaluate expression="licenseRequestService.load(licenseRequestId)" result="flowScope.licenseRequest"/>
+	</on-start>
+	
+    <view-state id="update" view="/licenserequest/update.xhtml">
+        <transition on="updateLicenseRequest" to="view"/>
     </view-state>
-
-    <action-state id="saveLicenseRequest">
-        <evaluate expression="licenseRequestService.create(licenseRequest)"/>
-        <transition to="view" on="Success"/>
-    </action-state>
 
     <end-state id="view" view="/licenserequest/view.xhtml" commit="true"/>
  
