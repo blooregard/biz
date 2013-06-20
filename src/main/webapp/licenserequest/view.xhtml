@@ -4,16 +4,21 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="/WEB-INF/templates/main.xhtml">
 
-<ui:define name="head">
+	<ui:define name="head">
 	License Request: #{licenseRequest.firstName} #{licenseRequest.lastName}
 </ui:define>
 
-<ui:define name="body">
-	<h:panelGrid columns="2">
-		<h:outputLabel id="first_name_label" name="first_name_label"
-			for="first_name" value="First Name:" />
-		<h:outputText id="first_name" name="first_name"
-			value="#{licenseRequest.firstName}" required="true">
+	<ui:define name="body">
+		<h:panelGrid columns="2">
+			<h:outputLabel id="id_label" name="id_label" for="id" value="ID:" />
+			<h:outputText id="id" name="id" value="#{licenseRequest.id}"
+				required="true">
+			</h:outputText>
+
+			<h:outputLabel id="first_name_label" name="first_name_label"
+				for="first_name" value="First Name:" />
+			<h:outputText id="first_name" name="first_name"
+				value="#{licenseRequest.firstName}" required="true">
 			</h:outputText>
 
 
@@ -55,8 +60,8 @@
 				value="#{licenseRequest.expirationDate}">
 				<f:converter converterId="sosDateConverter" />
 			</h:outputText>
-	</h:panelGrid>
+		</h:panelGrid>
 
-</ui:define>
+	</ui:define>
 
 </ui:composition>
