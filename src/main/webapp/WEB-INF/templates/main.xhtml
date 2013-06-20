@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:debug hotkey="x"/>
+
+<h:head>
+	<title><ui:insert name="head"/></title>
+</h:head>
+
+<h:body>
+	<h2>Colorado Secretary of State</h2>
+	<h:messages globalOnly="true" />
+	<ui:insert name="body"/>
+	Copyright <h:outputText value="#{currentDateTime.year}"/>
+</h:body>
+</html>

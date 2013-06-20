@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/main.xhtml">
+
+<ui:define name="head">
+	License Request: #{licenseRequest.firstName} #{licenseRequest.lastName}
+</ui:define>
+
+<ui:define name="body">
+	<h:panelGrid columns="2">
+		<h:outputLabel id="first_name_label" name="first_name_label"
+			for="first_name" value="First Name:" />
+		<h:outputText id="first_name" name="first_name"
+			value="#{licenseRequest.firstName}" required="true">
+			</h:outputText>
+
+
+			<h:outputLabel id="last_name_label" name="last_name_label"
+				for="last_name" value="Last Name:" />
+			<h:outputText id="last_name" name="last_name"
+				value="#{licenseRequest.lastName}" required="true" />
+
+
+			<h:outputLabel id="line1_label" name="line1_label" for="line1"
+				value="Line 1:" />
+			<h:outputText id="line1" name="line1" value="#{licenseRequest.line1}"
+				required="true" />
+
+
+			<h:outputLabel id="line2_label" name="line2_label" for="line2"
+				value="Line 2:" />
+			<h:outputText id="line2" name="line2" value="#{licenseRequest.line2}" />
+
+
+			<h:outputLabel id="fein_label" name="fein_label" for="fein"
+				value="FEIN:" />
+			<h:outputText id="fein" name="fein" value="#{licenseRequest.fein}">
+			</h:outputText>
+
+
+			<h:outputLabel id="issued_date_label" name="issued_date_label"
+				for="issued_date" value="Issued Date:" />
+			<h:outputText id="issued_date" name="issued_date"
+				value="#{licenseRequest.issuedDate}">
+				<f:converter converterId="sosDateConverter" />
+			</h:outputText>
+
+
+			<h:outputLabel id="expiration_date_label"
+				name="expiration_date_label" for="expiration_date"
+				value="Expiration Date:" />
+			<h:outputText id="expiration_date" name="expiration_date"
+				value="#{licenseRequest.expirationDate}">
+				<f:converter converterId="sosDateConverter" />
+			</h:outputText>
+	</h:panelGrid>
+
+</ui:define>
+
+</ui:composition>
